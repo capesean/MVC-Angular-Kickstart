@@ -1,0 +1,132 @@
+﻿<div>
+    <form name="mainForm" ng-submit="vm.save()" novalidate>
+
+        <fieldset ng-disabled="vm.loading">
+
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <fieldset class="group">
+
+                        <legend>Settings</legend>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.invoiceHeaderText.$invalid}">
+                                <label for="invoiceHeaderText" class="control-label">
+                                    Invoice Header:
+                                </label>
+                                <textarea id="invoiceHeaderText" name="invoiceHeaderText" ng-model="vm.settings.invoiceHeaderText" class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.invoiceFooterLeftText.$invalid}">
+                                        <label for="invoiceFooterLeftText" class="control-label">
+                                            Invoice Footer - Left:
+                                        </label>
+                                        <textarea id="invoiceFooterLeftText" name="invoiceFooterLeftText" ng-model="vm.settings.invoiceFooterLeftText" class="form-control" rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.invoiceFooterRightText.$invalid}">
+                                        <label for="invoiceFooterRightText" class="control-label">
+                                            Invoice Footer - Right:
+                                        </label>
+                                        <textarea id="invoiceFooterRightText" name="invoiceFooterRightText" ng-model="vm.settings.invoiceFooterRightText" class="form-control" rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.invoiceTimesDescription.$invalid}">
+                                <label for="name" class="control-label">
+                                    Invoice Times Description:
+                                </label>
+                                <input type="text" id="invoiceTimesDescription" name="invoiceTimesDescription" ng-model="vm.settings.invoiceTimesDescription" maxlength="50"
+                                       class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.invoiceDisbursementsDescription.$invalid}">
+                                <label for="name" class="control-label">
+                                    Invoice Disbursements Description:
+                                </label>
+                                <input type="text" id="invoiceDisbursementsDescription" name="invoiceDisbursementsDescription" ng-model="vm.settings.invoiceDisbursementsDescription" maxlength="50"
+                                       class="form-control" required />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="form-group" ng-class="{ 'has-error':  mainForm.$submitted && mainForm.vatRate.$invalid}">
+                                <label for="vatRate" class="control-label">
+                                    VAT Rate:
+                                </label>
+                                <input type="number" id="vatRate" name="vatRate" ng-model="vm.settings.vatRate" step="0.01"
+                                       maxlength="21" class="form-control text-right" required ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" />
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-group error-messages has-error alert alert-danger" ng-if="mainForm.$submitted && mainForm.$invalid">
+
+            <span class="help-block has-error"
+                  ng-if="mainForm.$submitted">
+                <span>
+                    Please correct the following errors:
+                </span>
+            </span>
+
+            <ul>
+
+                <li class="help-block has-error"
+                    ng-if="mainForm.$submitted"
+                    ng-messages="mainForm.invoiceTimesDescription.$error">
+                    <span ng-message="required">
+                        Invoice Times Description is required.
+                    </span>
+                </li>
+
+                <li class="help-block has-error"
+                    ng-if="mainForm.$submitted"
+                    ng-messages="mainForm.invoiceDisbursementsDescription.$error">
+                    <span ng-message="required">
+                        Invoice Disbursements Description is required.
+                    </span>
+                </li>
+
+                <li class="help-block has-error"
+                    ng-if="mainForm.$submitted"
+                    ng-messages="mainForm.vatRate.$error">
+                    <span ng-message="required">
+                        VAT Rate is required.
+                    </span>
+                    <span ng-message="pattern">
+                        VAT Rate is invalid.
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <fieldset ng-disabled="vm.loading" ix-has-role="ProjectManager">
+            <button type="submit" class="btn btn-success">Save<i class="fa fa-check"></i></button>
+        </fieldset>
+
+    </form>
+
+
+</div>

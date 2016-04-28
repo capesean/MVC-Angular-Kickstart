@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <title>SITENAME</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <link rel="icon" href="/favicon.ico" />
+    
+    <base href="/">
+
+    @Styles.Render("~/content/main")
+
+</head>
+<body ng-controller="masterPageController as vm" ng-class="{'minimizedMenu': vm.minimizedMenu}" class="loading">
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav id="topmenu" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="http://placehold.it/120x30?text=LOGO" alt="SITENAME" />
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul id="topmenu" class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a href="#"><i class="fa fa-chevron-circle-down fa-fw"></i><span class="hidden-xs visible-sm-inline-block visible-md-inline-block visible-lg-inline-block inline-block">Top Menu 1</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa fa-chevron-circle-down fa-fw"></i><span class="hidden-xs visible-sm-inline-block visible-md-inline-block visible-lg-inline-block inline-block">Top Menu 2</span></a>
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" ng-cloak=""><i class="fa fa-user fa-fw"></i><span class="hidden-xs visible-sm-inline-block visible-md-inline-block visible-lg-inline-block inline-block">{{vm.identity.firstName + ' ' + vm.identity.lastName}}</span></a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#" ng-click="vm.logout()"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div id="leftmenu" class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li><a href="#"><i class="fa fa-chevron-circle-right fa-fw"></i><span class="menuLabel">Menu Item 1</span></a></li>
+                        <li><a href="#"><i class="fa fa-chevron-circle-right fa-fw"></i><span class="menuLabel">Menu Item 2</span></a></li>
+                        <li ng-hide="!vm.isAccounts">
+                            <a href="#"><i class="fa fa-bars fa-fw"></i><span class="menuLabel">Menu Item 3</span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="#"><i class="fa fa-check-square-o fa-fw"></i><span class="menuLabel">Menu Item 3.1</span></a></li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li id="minimizeMenu"><a href="#" ng-click="vm.minimizeMenu()"><i class="fa fa-fw fa-chevron-left"></i><span class="menuLabel">Minimize Menu</span></a></li>
+                        <li id="maximizeMenu"><a href="#" ng-click="vm.maximizeMenu()"><i class="fa fa-fw fa-chevron-right"></i><i class="fa fa-fw fa-thumb-tack"></i><span class="menuLabel">Pin Menu</span></a></li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <ol id="breadcrumb" ncy-breadcrumb>&nbsp;</ol>
+            
+            <div ng-cloak ui-view>
+                @RenderBody()
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+
+    <div id="loginForm">
+
+        <div id="logocontainer" class="text-center">
+            <img src="http://placehold.it/370x80?text=LOGIN+LOGO" alt="SITENAME">
+            <img src="http://placehold.it/200x80?text=LOADING" />
+        </div>
+
+    </div>
+
+    <!-- /#wrapper -->
+
+    @Scripts.Render("~/scripts/main")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
