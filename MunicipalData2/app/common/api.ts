@@ -6,7 +6,8 @@
     angular
         .module("app")
         .factory("roleResource", roleResource)
-        .factory("settingsResource", settingsResource);
+        .factory("settingsResource", settingsResource)
+        .factory("userResource", userResource);
 
     //#region role resource
     roleResource.$inject = ["$resource", "appSettings"];
