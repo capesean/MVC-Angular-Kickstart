@@ -22,7 +22,7 @@
             "ngResource",       			// api interaction
             "LocalStorageModule",				// html storage
             //"ui.bootstrap",					// login modal
-            //"ngMessages",					// form validation messages
+            "ngMessages",					// form validation messages
             "ncy-angular-breadcrumb",		// breadcrumbs
             //"nya.bootstrap.select",			// angular bootstrap-select
             //"ngSanitize",					// for ng-bind-html

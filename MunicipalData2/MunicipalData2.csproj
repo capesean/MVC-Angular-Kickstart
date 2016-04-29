@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -174,13 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\home\home.html" />
-    <Content Include="app\home\home.js" />
     <Content Include="app\settings\settings.html" />
-    <Content Include="app\settings\settings.js" />
     <Content Include="app\users\user.html" />
-    <Content Include="app\users\user.js" />
     <Content Include="app\users\users.html" />
-    <Content Include="app\users\users.js" />
     <Content Include="content\bootstrap-theme.css" />
     <Content Include="content\bootstrap-theme.min.css" />
     <Content Include="content\bootstrap.css" />
@@ -193,17 +189,13 @@
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
     <Content Include="content\ui-bootstrap-csp.css" />
-    <Content Include="packages.config" />
-    <Content Include="content\toastr.scss" />
-    <Content Include="content\toastr.less" />
-    <Content Include="content\bootstrap.min.css.map" />
-    <Content Include="content\bootstrap.css.map" />
-    <Content Include="content\bootstrap-theme.min.css.map" />
-    <Content Include="content\bootstrap-theme.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\angular-breadcrumb.js" />
     <Content Include="Scripts\angular-breadcrumb.min.js" />
     <Content Include="Scripts\angular-local-storage.js" />
     <Content Include="Scripts\angular-local-storage.min.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
@@ -215,13 +207,17 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="Scripts\angular-resource.min.js.map" />
-    <Content Include="app\home\home.js.map" />
-    <Content Include="app\settings\settings.js.map" />
-    <Content Include="app\users\user.js.map" />
-    <Content Include="app\users\users.js.map" />
-    <Content Include="Scripts\angular-local-storage.min.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\bootstrap.min.css.map" />
+    <Content Include="content\bootstrap.css.map" />
+    <Content Include="content\bootstrap-theme.min.css.map" />
+    <Content Include="content\bootstrap-theme.css.map" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -312,10 +308,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\Lato-Black.ttf" />
     <Content Include="fonts\Lato-BlackItalic.ttf" />
     <Content Include="fonts\Lato-Bold.ttf" />
@@ -344,6 +336,10 @@
     <Content Include="fonts\OpenSans-Regular.ttf" />
     <Content Include="fonts\OpenSans-Semibold.ttf" />
     <Content Include="fonts\OpenSans-SemiboldItalic.ttf" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\angular-local-storage.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -354,7 +350,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\Apache License.txt" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\SIL Open Font License.txt" />
     <Content Include="Global.asax" />
     <Content Include="images\loading.gif" />
@@ -457,7 +452,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54302</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54302/</IISUrl>
+          <IISUrl>http://localhost:54303/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

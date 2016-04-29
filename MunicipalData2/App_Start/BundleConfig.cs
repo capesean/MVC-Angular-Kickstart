@@ -32,7 +32,7 @@ namespace WEB
                 "~/scripts/toastr.min.js",
                 "~/scripts/angular-ui/ui-bootstrap.js",
                 "~/scripts/angular-ui/ui-bootstrap-tpls.js",
-                //"~/scripts/angular-messages.min.js",
+                "~/scripts/angular-messages.min.js",
                 "~/scripts/angular-breadcrumb.min.js",
                 //"~/scripts/nya-bs-select.min.js",
                 "~/scripts/metisMenu.js",

@@ -11,8 +11,10 @@ namespace WEB.Models
 
 
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        { }
+            : base("DefaultConnection")
+        {
+            Database.CreateIfNotExists();
+        }
 
         public static ApplicationDbContext Create()
         {
