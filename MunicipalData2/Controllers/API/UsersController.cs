@@ -29,21 +29,22 @@ namespace WEB.Controllers
         }
 
         [HttpGet, Route("")]
-		public IHttpActionResult Search([FromUri]PagingOptions pagingOptions, [FromUri]string searchText = null, [FromUri]string roleId = null)
+        public IHttpActionResult Search([FromUri]PagingOptions pagingOptions, [FromUri]string q = null, [FromUri]string roleId = null)
         {
             IQueryable<ApplicationUser> results = UserManager.Users;
 
-            if (roleId != null) results = results.Where(u => u.Roles.Any(c => c.RoleId == roleId));
+            if (roleId != null) results = results.Where(o => o.Roles.Any(c => c.RoleId == roleId));
 
-            if (!string.IsNullOrWhiteSpace(searchText))
+            if (!string.IsNullOrWhiteSpace(q))
             {
-                results = results.Where(u =>
-                    u.FirstName.Contains(searchText)
-                    || u.LastName.Contains(searchText)
-                    || (u.FirstName + " " + u.LastName).Contains(searchText));
+                results = results.Where(o =>
+                    o.FirstName.Contains(q)
+                    || o.LastName.Contains(q)
+                    || (o.FirstName + " " + o.LastName).Contains(q)
+                    );
             }
 
-            results = results.OrderBy(u => u.FirstName + " " + u.LastName);
+            results = results.OrderBy(o => o.FirstName + " " + o.LastName);
 
             return Ok(GetPaginatedResponse(results, pagingOptions).Select(o => ModelFactory.Create(o)));
         }
@@ -51,7 +52,7 @@ namespace WEB.Controllers
         [HttpGet, Route("{id}")]
         public async Task<IHttpActionResult> Get(string id)
         {
-            var user = await DbContext.Users.Include(u => u.Roles).SingleOrDefaultAsync(u => u.Id == id);
+            var user = await DbContext.Users.Include(u => u.Roles).SingleOrDefaultAsync(o => o.Id == id);
 
             if (user == null) return NotFound();
 

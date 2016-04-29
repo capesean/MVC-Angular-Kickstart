@@ -14,7 +14,7 @@
         vm.loading = true;
         var allRoles = { id: "", name: "All roles" };
         vm.roles = [allRoles];
-		vm.search = {};
+		vm.search = { };
 		vm.runSearch = runSearch;
         vm.goToUser = userId => $state.go("app.user", { id: userId });
         vm.newId = appSettings.newGuid;
@@ -23,11 +23,11 @@
 
 		// events
 		function initPage() {
-
+            
 			roleResource.query({ pageSize: 0 },
 				data => {
 
-					vm.search = { text: $stateParams.searchText, roleId: ($stateParams.roleId ? $stateParams.roleId : "") };
+					vm.search = { q: $stateParams.q, roleId: ($stateParams.roleId ? $stateParams.roleId : null) };
 					vm.roles = vm.roles.concat(data);
 
 					let role = undefined;
@@ -39,7 +39,7 @@
 					// get the data
 					userResource.query(
 						{
-							searchText: vm.search.text,
+							q: vm.search.q,
 							roleId: role ? role.id : undefined
 						},
 						data => {
@@ -79,7 +79,7 @@
 
         function runSearch() {
 
-            $state.go("app.users", { searchText: vm.search.text, roleId: vm.search.roleId });
+            $state.go("app.users", { q: vm.search.q, roleId: vm.search.roleId });
 
         };
 

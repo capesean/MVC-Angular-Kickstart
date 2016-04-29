@@ -237,7 +237,7 @@
                     label: "{{vm.user.firstName}} {{vm.user.lastName}}"
                 }
             }).state("app.users", {
-                url: "/users?searchText&roleId",
+                url: "/users?q&roleId",
                 templateUrl: "/app/users/users.html",
                 controller: "users",
                 controllerAs: "vm",

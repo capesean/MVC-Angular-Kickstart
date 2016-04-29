@@ -10,8 +10,6 @@
     function masterPageController($scope, $state, $rootScope, notifications, $window, localStorageService, authService) {
 
         var vm = this;
-        vm.isConsultant = false;
-        vm.isAccounts = false;
         vm.isAdministrator = false;
         vm.identity = null;
         vm.logout = logout;
